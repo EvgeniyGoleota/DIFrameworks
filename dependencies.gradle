@@ -1,0 +1,81 @@
+ext {
+    def kotlin = "1.3.21"
+    def ktx = "1.0.1"
+    def material = "1.0.0"
+    def appcompat = "1.0.2"
+    def constraintlayout = "2.0.0-alpha3"
+
+    def koin = "1.0.1"
+    def kodein = "6.1.0"
+    def dagger2 = "2.16"
+
+    def room = "2.1.0-alpha02"
+    def paging = "2.1.0"
+    def nav = "1.0.0-rc02"
+    def junit_version = "4.12"
+    def mockito_core_version = "2.24.0"
+    def annotation_version = "1.0.0"
+    def runner_version = "1.1.0-beta02"
+    def rules_version = "1.1.0-beta02"
+    def espresso_core_version = "3.1.0-beta02"
+    def uiautomator_version = "2.2.0"
+
+    kotlinDependencies = [
+            stdlib      : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin}",
+            core_android: "androidx.core:core-ktx:${ktx}"
+    ]
+
+    coreAndroidDependencies = [
+            material        : "com.google.android.material:material:${material}",
+            appcompat       : "androidx.appcompat:appcompat:${appcompat}",
+            constraintlayout: "androidx.constraintlayout:constraintlayout:${constraintlayout}"
+    ]
+
+    navigationDependencies = [
+            fragment: "android.arch.navigation:navigation-fragment-ktx:${nav}",
+            ui      : "android.arch.navigation:navigation-ui-ktx:${nav}"
+    ]
+
+    koinDependencies = [
+            core     : "org.koin:koin-core:${koin}",
+            scope    : "org.koin:koin-androidx-scope:${koin}",
+            viewmodel: "org.koin:koin-androidx-viewmodel:${koin}",
+            test     : "org.koin:koin-test:${koin}"
+    ]
+
+    kodeinDependencies = [
+            di     : "org.kodein.di:kodein-di-generic-jvm:${kodein}",
+            android: "org.kodein.di:kodein-di-framework-android-x:${kodein}"
+    ]
+
+    daggerDependenciesApi = [
+            dagger              : "com.google.dagger:dagger:${dagger2}",
+            daggerAndroid       : "com.google.dagger:dagger-android:${dagger2}",
+            daggerAndroidSupport: "com.google.dagger:dagger-android-support:${dagger2}"
+    ]
+
+    daggerDependenciesAnnotation = [
+            compiler : "com.google.dagger:dagger-compiler:${dagger2}",
+            processor: "com.google.dagger:dagger-android-processor:${dagger2}",
+            support  : "com.google.dagger:dagger-android-support:${dagger2}"
+    ]
+
+    testDependencies = [
+            room_testing        : "androidx.room:room-testing:${room}",
+            paging_common       : "androidx.paging:paging-common-ktx:${paging}",
+            junit_version       : "junit:junit:${junit_version}",
+            mockito_core_version: "org.mockito:mockito-core:${mockito_core_version}"
+    ]
+
+    juntDependenciesOnly = [
+            junit_version: "junit:junit:${junit_version}"
+    ]
+
+    androidTestDependencies = [
+            annotation_version   : "androidx.annotation:annotation:${annotation_version}",
+            runner_version       : "androidx.test:runner:${runner_version}",
+            rules_version        : "androidx.test:rules:${rules_version}",
+            espresso_core_version: "androidx.test.espresso:espresso-core:${espresso_core_version}",
+            uiautomator_version  : "androidx.test.uiautomator:uiautomator:${uiautomator_version}",
+    ]
+}

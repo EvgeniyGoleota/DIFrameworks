@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/koinFragment"
+        android:name="net.android.diframeworks.view.koin.KoinFragment"
+        android:label="KoinFragment" />
+    <fragment
+        android:id="@+id/kodeinFragment"
+        android:name="net.android.diframeworks.view.kodein.KodeinFragment"
+        android:label="KodeinFragment" />
+    <fragment
+        android:id="@+id/daggerFragment"
+        android:name="net.android.diframeworks.view.dagger.DaggerFragment"
+        android:label="DaggerFragment" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="net.android.diframeworks.view.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_koinFragment"
+            app:destination="@id/koinFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_kodeinFragment"
+            app:destination="@id/kodeinFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_daggerFragment"
+            app:destination="@id/daggerFragment" />
+    </fragment>
+</navigation>

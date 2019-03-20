@@ -1,5 +1,6 @@
 package net.android.diframeworks.di.dagger.modules
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
@@ -15,12 +16,12 @@ abstract class DaggerVMBinder {
     @Binds
     @IntoMap
     @ViewModelKey(MainVM::class)
-    abstract fun bindMainVM(vm: MainVM): MainVM
+    abstract fun bindMainVM(vm: MainVM): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(DaggerVM::class)
-    abstract fun bindDaggerVM(vm: DaggerVM): DaggerVM
+    abstract fun bindDaggerVM(vm: DaggerVM): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

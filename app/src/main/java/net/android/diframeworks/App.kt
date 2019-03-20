@@ -3,18 +3,16 @@ package net.android.diframeworks
 import android.app.Activity
 import android.app.Application
 import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import net.android.diframeworks.di.dagger.AppComponent
+import net.android.diframeworks.di.dagger.DaggerAppComponent
 import net.android.diframeworks.di.kodein.kodeinModule
 import net.android.diframeworks.di.koin.koinModules
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.koin.android.ext.android.startKoin
 import javax.inject.Inject
-import net.android.diframeworks.di.dagger.AppComponent
-import dagger.android.DispatchingAndroidInjector
-
-
 
 
 class App : Application(), KodeinAware, HasActivityInjector {
@@ -34,10 +32,10 @@ class App : Application(), KodeinAware, HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-//        DaggerAppComponent
-//            .builder()
-//            .build()
-//            .inject(this)
+        DaggerAppComponent
+            .builder()
+            .build()
+            .inject(this)
 
         // Koin init
         startKoin(this, koinModules)

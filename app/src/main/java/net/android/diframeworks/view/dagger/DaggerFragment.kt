@@ -2,24 +2,22 @@ package net.android.diframeworks.view.dagger
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.CallSuper
-import dagger.android.support.AndroidSupportInjection
-import net.android.diframeworks.R
-import net.android.diframeworks.databinding.FragmentDaggerBinding
-import net.android.diframeworks.view.BaseFragment
-import androidx.lifecycle.ViewModelProvider
-import javax.inject.Inject
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
+import net.android.diframeworks.R
+import net.android.diframeworks.databinding.FragmentDaggerBinding
+import net.android.diframeworks.view.BaseFragment
 import java.lang.reflect.ParameterizedType
+import javax.inject.Inject
 
 
 class DaggerFragment : AbstractDaggerFragment<DaggerVM, FragmentDaggerBinding>() {
@@ -51,7 +49,7 @@ abstract class AbstractDaggerFragment<VM : ViewModel, VB : ViewDataBinding> : Ba
 
     @CallSuper
     override fun afterCreateView(view: View, savedInstanceState: Bundle?) {
-//        vm = ViewModelProviders.of(this, viewModelFactory).get(getVMTypeClass())
+        vm = ViewModelProviders.of(this, viewModelFactory).get(getVMTypeClass())
     }
 
     @Suppress("UNCHECKED_CAST")

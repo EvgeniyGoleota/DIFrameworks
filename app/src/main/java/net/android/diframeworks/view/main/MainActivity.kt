@@ -2,6 +2,7 @@ package net.android.diframeworks.view.main
 
 import android.app.Fragment
 import android.os.Bundle
+import android.util.Log
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -11,7 +12,13 @@ import net.android.diframeworks.R
 import net.android.diframeworks.view.BaseActivity
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<Nothing>(), HasFragmentInjector, HasSupportFragmentInjector {
+class MainActivity constructor(
+    private val message: String
+) : BaseActivity<Nothing>(), HasFragmentInjector, HasSupportFragmentInjector {
+
+    init {
+        Log.i("MainActivity", message)
+    }
 
     @Inject
     protected lateinit var supportFragmentInjector: DispatchingAndroidInjector<androidx.fragment.app.Fragment>

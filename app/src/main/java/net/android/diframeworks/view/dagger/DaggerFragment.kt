@@ -27,7 +27,6 @@ class DaggerFragment : AbstractDaggerFragment<DaggerVM, FragmentDaggerBinding>()
     override fun afterCreateView(view: View, savedInstanceState: Bundle?) {
         super.afterCreateView(view, savedInstanceState)
         vb = FragmentDaggerBinding.bind(view)
-        vm
     }
 }
 
@@ -42,7 +41,7 @@ abstract class AbstractDaggerFragment<VM : ViewModel, VB : ViewDataBinding> : Ba
 
     override lateinit var vm: VM
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }

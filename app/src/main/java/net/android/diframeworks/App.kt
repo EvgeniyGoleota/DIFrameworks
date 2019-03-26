@@ -32,12 +32,23 @@ class App : Application(), KodeinAware, HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-        DaggerAppComponent
-            .builder()
-            .build()
-            .inject(this)
+        appComponentInstance.inject(this)
 
         // Koin init
         startKoin(this, koinModules)
+    }
+
+    companion object {
+        private lateinit var appComponent: AppComponent
+
+        val appComponentInstance: AppComponent
+            get() {
+                return if (::appComponent.isInitialized) {
+                    appComponent
+                } else {
+                    appComponent = DaggerAppComponent.create()
+                    appComponent
+                }
+            }
     }
 }

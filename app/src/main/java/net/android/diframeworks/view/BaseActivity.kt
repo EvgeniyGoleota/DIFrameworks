@@ -1,11 +1,10 @@
 package net.android.diframeworks.view
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
-import dagger.android.AndroidInjection
-import dagger.android.support.DaggerAppCompatActivity
 
-abstract class BaseActivity<VM : ViewModel> : DaggerAppCompatActivity() {
+abstract class BaseActivity<VM : ViewModel> : AppCompatActivity() {
 
     protected abstract val vm: VM
 
@@ -13,7 +12,6 @@ abstract class BaseActivity<VM : ViewModel> : DaggerAppCompatActivity() {
     protected abstract fun getLayout(): Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(getLayout())
         afterCreate()

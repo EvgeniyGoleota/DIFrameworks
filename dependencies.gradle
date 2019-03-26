@@ -9,7 +9,7 @@ ext {
     def kodein = "6.1.0"
     def dagger2 = "2.16"
 
-    def nav = "1.0.0-rc02"
+    def nav = "2.1.0-alpha01"
     def junit_version = "4.12"
     def mockito_core_version = "2.24.0"
     def annotation_version = "1.0.0"
@@ -30,8 +30,8 @@ ext {
     ]
 
     navigationDependencies = [
-            fragment: "android.arch.navigation:navigation-fragment-ktx:${nav}",
-            ui      : "android.arch.navigation:navigation-ui-ktx:${nav}"
+            fragment: "androidx.navigation:navigation-fragment-ktx:${nav}",
+            ui      : "androidx.navigation:navigation-ui-ktx:${nav}"
     ]
 
     koinDependencies = [

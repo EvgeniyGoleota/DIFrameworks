@@ -1,4 +1,4 @@
-package net.android.diframeworks.di.dagger
+package net.android.diframeworks.di.dagger.keys
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

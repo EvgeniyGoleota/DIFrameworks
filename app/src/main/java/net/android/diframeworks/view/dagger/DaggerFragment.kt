@@ -15,6 +15,9 @@ import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
 import net.android.diframeworks.R
 import net.android.diframeworks.databinding.FragmentDaggerBinding
+import net.android.diframeworks.di.dagger.modules.DaggerFragmentObject
+import net.android.diframeworks.di.dagger.modules.NonScopedObject
+import net.android.diframeworks.util.logInfo
 import net.android.diframeworks.view.BaseFragment
 import java.lang.reflect.ParameterizedType
 import javax.inject.Inject
@@ -22,11 +25,24 @@ import javax.inject.Inject
 
 class DaggerFragment : AbstractDaggerFragment<DaggerVM, FragmentDaggerBinding>() {
 
+    @Inject
+    lateinit var scopedObjToBeInjected1: DaggerFragmentObject
+    @Inject
+    lateinit var scopedObjToBeInjected2: DaggerFragmentObject
+    @Inject
+    lateinit var nonScopedObjToBeInjected1: NonScopedObject
+    @Inject
+    lateinit var nonScopedObjToBeInjected2: NonScopedObject
+
     override fun getLayout(): Int = R.layout.fragment_dagger
 
     override fun afterCreateView(view: View, savedInstanceState: Bundle?) {
         super.afterCreateView(view, savedInstanceState)
         vb = FragmentDaggerBinding.bind(view)
+        logInfo("Injected: $scopedObjToBeInjected1")
+        logInfo("Injected: $scopedObjToBeInjected2")
+        logInfo("Injected: $nonScopedObjToBeInjected1")
+        logInfo("Injected: $nonScopedObjToBeInjected2")
     }
 }
 

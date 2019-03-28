@@ -6,7 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import net.android.diframeworks.di.dagger.ViewModelFactory
-import net.android.diframeworks.di.dagger.ViewModelKey
+import net.android.diframeworks.di.dagger.keys.ViewModelKey
 import net.android.diframeworks.view.dagger.DaggerVM
 import net.android.diframeworks.view.main.MainVM
 
